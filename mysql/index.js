@@ -20,7 +20,7 @@ app.get("/", function(request, response){
     connection.query("SELECT * FROM sample", function(gagal, row, fields){
         if(!gagal){
             console.log("kueri berhasil");
-            console.log(row);
+            response.send("nilainya " + row[1].pss);
         }else{
             console.log("kueri gagal");
         }
