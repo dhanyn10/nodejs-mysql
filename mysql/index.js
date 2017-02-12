@@ -9,17 +9,18 @@ var connection = mysql.createConnection({
     database    : "nodejs_db"
 });
 
-connection.connect(function(konek){
-    if(!konek)
+connection.connect(function(gagal){
+    if(!gagal)
         console.log('koneksi berhasil');
     else
         console.log('koneksi gagal');
 });
 //routing
 app.get("/", function(request, response){
-    connection.query("SELECT * FROM nodejs_db", function(success, row, fields){
-        if(success){
+    connection.query("SELECT * FROM sample", function(gagal, row, fields){
+        if(!gagal){
             console.log("kueri berhasil");
+            console.log(row);
         }else{
             console.log("kueri gagal");
         }
